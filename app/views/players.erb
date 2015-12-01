@@ -1,0 +1,15 @@
+<ul class="players">
+  <% @players.each do |player| %>
+  <li>
+    <%= player.name %>
+  </li>
+  <% end %>
+</ul>
+
+<form action="/players" method="post" id="player-form">
+  <fieldset>
+    <legend>Add a Player</legend>
+    <input id="player-name" name="name" type="text"></input>
+    <input type="submit"></input>
+  </fieldset>
+</form>
