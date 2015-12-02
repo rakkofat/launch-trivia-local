@@ -47,3 +47,21 @@ get '/challenges' do
   @challenges = Challenge.all
   erb :challenges
 end
+
+post "/challenges" do
+  unless (params[:challenge].nil? || params[:challenge].empty?)
+    Challenge.create({challenge: params[:challenge]})
+  end
+  redirect to("/challenges")
+end
+
+post "/challenges/:challenge" do
+  if params[:challenge]
+    challenge = Challenge.create({challenge: params[:challenge]})
+    status 201
+    # headers "Location" => "/players/#{player.name}"
+    headers "Location" => "/challenges"
+  else
+    status 400
+  end
+end
