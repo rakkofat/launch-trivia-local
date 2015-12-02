@@ -1,0 +1,9 @@
+<h1>Drinkers: <%= @shots %></h1>
+
+<ul>
+  <% @drinkers.each do |drinker| %>
+  <li>
+    <%= drinker.name %>
+  </li>
+  <% end %>
+</ul>

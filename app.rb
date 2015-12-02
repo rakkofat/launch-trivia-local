@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/reloader'
+require 'pry'
 
 configure :development, :test do
   require 'pry'
@@ -15,6 +16,14 @@ Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
   also_reload file
 end
 
+def load_gun
+  rand(1..6)
+end
+
+def roulette(n)
+  Player.all.to_a.sample(n)
+end
+
 get '/' do
   @title = "Hello World"
   erb :index
@@ -23,6 +32,12 @@ end
 get '/players' do
   @players = Player.all
   erb :players
+end
+
+get '/play' do
+  @shots = load_gun
+  @drinkers = roulette(@shots)
+  erb :play
 end
 
 post "/players" do
