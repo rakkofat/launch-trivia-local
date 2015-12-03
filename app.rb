@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/reloader'
 require 'pry'
+require 'sinatra/json'
 
 configure :development, :test do
   require 'pry'
@@ -36,9 +37,16 @@ get '/players' do
   erb :players
 end
 
+get '/players.json' do
+  # @shots = load_gun
+  # @drinkers = roulette(@shots)
+  content_type :json
+
+  json Player.all.sample(rand(1..6))
+  # players = Player.all
+end
+
 get '/play' do
-  @shots = load_gun
-  @drinkers = roulette(@shots)
   erb :play
 end
 
