@@ -31,7 +31,3 @@ $("#challenges-form").on("submit", function(event) {
   });
   return false;
 });
-
-$( "#playButton" ).click(function() {
-  location.reload();
-});
