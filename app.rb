@@ -19,14 +19,6 @@ Dir[File.join(File.dirname(__FILE__), 'app', '**', '*.rb')].each do |file|
   also_reload file
 end
 
-def load_gun
-  rand(1..6)
-end
-
-def roulette(n)
-  Player.all.to_a.sample(n)
-end
-
 get '/' do
   @title = "Hello World"
   erb :index
@@ -38,12 +30,9 @@ get '/players' do
 end
 
 get '/players.json' do
-  # @shots = load_gun
-  # @drinkers = roulette(@shots)
   content_type :json
 
   json Player.all.sample(rand(1..6))
-  # players = Player.all
 end
 
 get '/play' do

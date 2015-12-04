@@ -4,13 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello World</title>
+    <link rel="stylesheet" href="/stylesheets/foundation.css" />
     <link rel="stylesheet" href="/stylesheets/app.css" />
   </head>
   <body>
-    <%= yield %>
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="/javascripts/app.js"></script>
+    <div class="container">
+      <div class="row">
+        <div class="column">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+    <script src="/javascripts/vendor/jquery.min.js"></script>
+    <script src="/javascripts/vendor/what-input.min.js"></script>
+    <script src="/javascripts/foundation.min.js"></script>
     <script src="/javascripts/play.js"></script>
   </body>
 </html>

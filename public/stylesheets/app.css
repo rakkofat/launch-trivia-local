@@ -1,0 +1,28 @@
+body {
+  background: #eb227b;
+}
+
+#play-field {
+  background: white;
+  min-height: 150px;
+}
+
+.team {
+  height: 250px;
+}
+
+#one {
+  background: red;
+}
+
+#two {
+  background: orange;
+}
+
+#three {
+  background: yellow;
+}
+
+#four {
+  background: green;
+}
