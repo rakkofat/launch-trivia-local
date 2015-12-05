@@ -1,9 +1,3 @@
-var unsortedPlayers = [];
-var team1 = [];
-var team2 = [];
-var team3 = [];
-var team4 = [];
-
 $(document).ready(function(){
 
   $("#player-form").on("submit", function(event) {
@@ -17,34 +11,21 @@ $(document).ready(function(){
     });
 
     request.success(function() {
-      unsortedPlayers.push(newPlayerName);
-      $("ul.players").append("<li>" + newPlayerName + "</li>");
+      $("#teamless").append("<li>" + newPlayerName + "</li>");
       $("#player-name").val('');
     });
     return false;
   });
 
+  $("#sortButton").click("submit", function(event) {
+    event.preventDefault();
 
-
-
-
-
+    var unsorted = $("#teamless li");
+    var shuffled = _.shuffle(unsorted);
+    _.forEach(shuffled, function(player, index){
+      var placement = "#" + _.min($("#teams-column ul"), function(team) { return $(team).children("li").length }).id;
+      $(placement).append(player);
+    });
+    return false;
+  });
 });
-
-// $("#player-form").on("submit", function(event) {
-//   event.preventDefault();
-//   var newPlayerName = $('#player-name').val()
-//
-//   var request = $.ajax({
-//     method: "POST",
-//     data: { content: newPlayerName },
-//     url: "/players/" + newPlayerName
-//   });
-//
-//   request.success(function() {
-//     unsortedPlayers.push(newPlayerName);
-//     $("ul.players").append("<li>" + newPlayerName + "</li>");
-//     $("#player-name").val('');
-//   });
-//   return false;
-// });

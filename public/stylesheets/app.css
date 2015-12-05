@@ -26,3 +26,6 @@ body {
 #four {
   background: green;
 }
+
+/*#teamless, #team-1, #team-2, #team-3, #team-4 { list-style-type: none; margin: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;}
+#teamless li, #team-1 li, #team-2 li, #team-3 li, #team-4 li { margin: 5px; padding: 5px; font-size: 1.2em; width: 120px; }*/

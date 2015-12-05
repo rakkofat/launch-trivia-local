@@ -45,14 +45,14 @@ end
 
 post "/players" do
   unless (params[:name].nil? || params[:name].empty?)
-    Player.create({name: params[:name], team: 0})
+    Player.create({name: params[:name], team_id: 0})
   end
   redirect to("/players")
 end
 
 post "/players.json" do
   if params[:name]
-    player = Player.create({name: params[:name], team: 0})
+    player = Player.create({name: params[:name], team_id: 0})
     status 201
     # headers "Location" => "/players/#{player.name}"
     # headers "Location" => "/players"

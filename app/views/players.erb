@@ -1,8 +1,8 @@
 <div class="row">
   <div class="column small-6">
-    <ul class="players">
+    <ul id="teamless" class="droptrue players">
       <% @players.each do |player| %>
-      <li>
+      <li class="ui-state-default">
         <%= player.name %>
       </li>
       <% end %>
@@ -15,14 +15,15 @@
         <input type="submit"></input>
       </fieldset>
     </form>
+    <button class="button text-center" id="sortButton" name="sortButton">Sort Teams!</button>
   </div>
-  <div class="column small-6">
+  <div id="teams-column" class="column small-6">
     <div class="row">
-      <div id="team-1" class="column">
+      <div class="column">
         <h1>Team 1</h1>
-        <ul>
+        <ul id="team-1" class="droptrue">
           <% @team_1.each do |player| %>
-          <li>
+          <li class="ui-state-default">
             <%= player.name %>
           </li>
           <% end %>
@@ -30,11 +31,11 @@
       </div>
     </div>
     <div class="row">
-      <div id="team-2" class="column">
+      <div class="column">
         <h1>Team 2</h1>
-        <ul>
+        <ul id="team-2" class="droptrue">
           <% @team_2.each do |player| %>
-          <li>
+          <li class="ui-state-default">
             <%= player.name %>
           </li>
           <% end %>
@@ -42,11 +43,11 @@
       </div>
     </div>
     <div class="row">
-      <div id="team-3" class="column">
+      <div class="column">
         <h1>Team 3</h1>
-        <ul>
+        <ul id="team-3" class="droptrue">
           <% @team_3.each do |player| %>
-          <li>
+          <li class="ui-state-default">
             <%= player.name %>
           </li>
           <% end %>
@@ -54,11 +55,11 @@
       </div>
     </div>
     <div class="row">
-      <div id="team-4" class="column">
+      <div class="column">
         <h1>Team 4</h1>
-        <ul>
+        <ul id="team-4" class="droptrue">
           <% @team_4.each do |player| %>
-          <li>
+          <li class="ui-state-default">
             <%= player.name %>
           </li>
           <% end %>

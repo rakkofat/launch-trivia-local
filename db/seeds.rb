@@ -1,3 +1,4 @@
+require 'faker'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -26,7 +27,7 @@ end
 player_attributes.each do |attributes|
   Player.create(attributes)
 end
-#
+
 team_attributes = [
   { name: 'Team 1', score: 0 },
   { name: 'Team 2', score: 0 },
