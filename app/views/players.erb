@@ -1,15 +1,70 @@
-<ul class="players">
-  <% @players.each do |player| %>
-  <li>
-    <%= player.name %>
-  </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="column small-6">
+    <ul class="players">
+      <% @players.each do |player| %>
+      <li>
+        <%= player.name %>
+      </li>
+      <% end %>
+    </ul>
 
-<form action="/players" method="post" id="player-form">
-  <fieldset>
-    <legend>Add a Player</legend>
-    <input id="player-name" name="name" type="text"></input>
-    <input type="submit"></input>
-  </fieldset>
-</form>
+    <form action="/players" method="post" id="player-form">
+      <fieldset>
+        <legend>Add a Player</legend>
+        <input id="player-name" name="name" type="text"></input>
+        <input type="submit"></input>
+      </fieldset>
+    </form>
+  </div>
+  <div class="column small-6">
+    <div class="row">
+      <div id="team-1" class="column">
+        <h1>Team 1</h1>
+        <ul>
+          <% @team_1.each do |player| %>
+          <li>
+            <%= player.name %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div id="team-2" class="column">
+        <h1>Team 2</h1>
+        <ul>
+          <% @team_2.each do |player| %>
+          <li>
+            <%= player.name %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div id="team-3" class="column">
+        <h1>Team 3</h1>
+        <ul>
+          <% @team_3.each do |player| %>
+          <li>
+            <%= player.name %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div id="team-4" class="column">
+        <h1>Team 4</h1>
+        <ul>
+          <% @team_4.each do |player| %>
+          <li>
+            <%= player.name %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

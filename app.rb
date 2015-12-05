@@ -25,14 +25,18 @@ get '/' do
 end
 
 get '/players' do
-  @players = Player.all
+  @players = Player.where(team: 0);
+  @team_1 = Player.where(team: 1);
+  @team_2 = Player.where(team: 2);
+  @team_3 = Player.where(team: 3);
+  @team_4 = Player.where(team: 4);
   erb :players
 end
 
 get '/players.json' do
   content_type :json
 
-  json Player.all.sample(rand(1..6))
+  json Player.all
 end
 
 get '/play' do
@@ -41,17 +45,17 @@ end
 
 post "/players" do
   unless (params[:name].nil? || params[:name].empty?)
-    Player.create({name: params[:name], drinks: 0, challenges: 0})
+    Player.create({name: params[:name], team: 0})
   end
   redirect to("/players")
 end
 
-post "/players/:name" do
+post "/players.json" do
   if params[:name]
-    player = Player.create({name: params[:name], drinks: 0, challenges: 0})
+    player = Player.create({name: params[:name], team: 0})
     status 201
     # headers "Location" => "/players/#{player.name}"
-    headers "Location" => "/players"
+    # headers "Location" => "/players"
   else
     status 400
   end

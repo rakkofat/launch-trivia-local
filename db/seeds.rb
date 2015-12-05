@@ -5,31 +5,35 @@
 #
 #   Person.create(first_name: 'Eric', last_name: 'Kelly')
 
-player_attributes = [
-  { name: 'Fatty', drinks: 0, challenges: 0 },
-  { name: 'Joseph', drinks: 0, challenges: 0 },
-  { name: 'Chelsea', drinks: 0, challenges: 0 },
-  { name: 'Lily', drinks: 0, challenges: 0 },
-  { name: 'Michelle', drinks: 0, challenges: 0 },
-  { name: 'Sally', drinks: 0, challenges: 0 },
-  { name: 'Tali', drinks: 0, challenges: 0 },
-  { name: 'Julie', drinks: 0, challenges: 0 },
-  { name: 'Nathan', drinks: 0, challenges: 0 }
-]
+# player_attributes = [
+#   { name: 'Fatty', drinks: 0, challenges: 0 },
+#   { name: 'Joseph', drinks: 0, challenges: 0 },
+#   { name: 'Chelsea', drinks: 0, challenges: 0 },
+#   { name: 'Lily', drinks: 0, challenges: 0 },
+#   { name: 'Michelle', drinks: 0, challenges: 0 },
+#   { name: 'Sally', drinks: 0, challenges: 0 },
+#   { name: 'Tali', drinks: 0, challenges: 0 },
+#   { name: 'Julie', drinks: 0, challenges: 0 },
+#   { name: 'Nathan', drinks: 0, challenges: 0 }
+# ]
+
+player_attributes = []
+
+10.times do
+  player_attributes << { name: Faker::Name.name, team_id: 0 }
+end
 
 player_attributes.each do |attributes|
   Player.create(attributes)
 end
-
-challenge_attributes = [
-  { challenge: 'If you could trade bodies with another player who would it be?' },
-  { challenge: 'who in the group would you vote off of the island?' },
-  { challenge: 'Pick a player and make them laugh by whatever means you can. If you cannot make them laugh in 30 seconds you drink.' },
-  { challenge: 'Tuck in your shirt and drop an icecube down it!' },
-  { challenge: 'High five the room' },
-  { challenge: 'Continuously talk for 2 minutes without stopping.' },
+#
+team_attributes = [
+  { name: 'Team 1', score: 0 },
+  { name: 'Team 2', score: 0 },
+  { name: 'Team 3', score: 0 },
+  { name: 'Team 4', score: 0 }
 ]
 
-challenge_attributes.each do |attributes|
-  Challenge.create(attributes)
+team_attributes.each do |attributes|
+  Team.create(attributes)
 end

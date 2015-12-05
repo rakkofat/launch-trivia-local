@@ -1,9 +1,5 @@
 $(document).foundation();
 
-var spinChamber = function(){
-  return Math.floor(Math.random()*6+1)
-};
-
 var fireGun = function(){
   return Math.floor(Math.random()*6+1) === Math.floor(Math.random()*6+1);
 };
