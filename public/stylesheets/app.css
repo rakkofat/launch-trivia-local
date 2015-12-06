@@ -11,20 +11,24 @@ body {
   height: 250px;
 }
 
-#one {
+.one {
   background: red;
 }
 
-#two {
+.two {
   background: orange;
 }
 
-#three {
+.three {
   background: yellow;
 }
 
-#four {
+.four {
   background: green;
+}
+
+.current {
+  background: purple;
 }
 
 /*#teamless, #team-1, #team-2, #team-3, #team-4 { list-style-type: none; margin: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;}

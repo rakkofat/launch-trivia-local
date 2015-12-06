@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20151205161216) do
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string  "name",  null: false
-    t.integer "score"
+    t.string  "name",    null: false
+    t.integer "score",   null: false
+    t.boolean "current", null: false
   end
 
 end

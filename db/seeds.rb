@@ -29,10 +29,10 @@ player_attributes.each do |attributes|
 end
 
 team_attributes = [
-  { name: 'Team 1', score: 0 },
-  { name: 'Team 2', score: 0 },
-  { name: 'Team 3', score: 0 },
-  { name: 'Team 4', score: 0 }
+  { name: 'Team 1', score: 0, current: TRUE },
+  { name: 'Team 2', score: 0, current: FALSE },
+  { name: 'Team 3', score: 0, current: FALSE },
+  { name: 'Team 4', score: 0, current: FALSE }
 ]
 
 team_attributes.each do |attributes|

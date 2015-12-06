@@ -4,20 +4,22 @@ $(document).ready(function(){
     event.preventDefault();
     var newPlayerName = $('#player-name').val()
 
-    var request = $.ajax({
-      method: "POST",
-      data: { name: newPlayerName },
-      url: "/players.json"
-    });
+    if ( $.trim(newPlayerName) !== '' ) {
+      var request = $.ajax({
+        method: "POST",
+        data: { name: newPlayerName },
+        url: "/players.json"
+      });
 
-    request.success(function() {
-      $("#0").append("<li>" + newPlayerName + "</li>");
-      $("#player-name").val('');
-    });
-    return false;
+      request.success(function() {
+        $("#0").append("<li>" + newPlayerName + "</li>");
+        $("#player-name").val('');
+      });
+      return false;
+    }
   });
 
-  $("#sortButton").click("submit", function(event) {
+  $("#sortButton").click(function(event) {
     event.preventDefault();
 
     var unsorted = $("#0 li");
@@ -39,15 +41,32 @@ $(document).ready(function(){
       data: {everyone: bulkData},
       url: "/update-players.json"
     });
-
     return false;
   });
 
-  // $("#saveTeams").click("submit", function(event) {
-  //   event.preventDefault;
-  //
-  //   var updates = [];
-  // });
+  $("#resetButton").click(function(event){
+    event.preventDefault();
+
+    var sortedPlayers = $("#teams-column li");
+    var update = [];
+
+    _.forEach(sortedPlayers, function(player, index){
+      var playerName = _.trim($(player).text());
+      update.push({name: playerName});
+      $("#0").append(player);
+    });
+
+    var bulkData = JSON.stringify(update);
+
+    var request = $.ajax({
+      method: "POST",
+      data: {everyone: bulkData},
+      url: "/reset-players"
+    });
+    return false;
+
+
+  });
   //
   // var a = $.map( $('li'), function (element) { return _.trim($(element).text()) });
 });

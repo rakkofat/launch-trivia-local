@@ -1,10 +1,5 @@
 
 <div class="row">
-  <div id="round" class="column">
-    <h1 id="roundText"></h1>
-  </div>
-</div>
-<div class="row">
   <div id="play-field" class="column">
     <h1 id="play-fieldText"></h1>
   </div>
@@ -15,19 +10,40 @@
     <button class="button text-center" id="showAnswerButton" name="showAnswerButton">Show Answer</button>
     <button class="button text-center" id="correctButton" name="correctButton">You got it!</button>
     <button class="button text-center" id="incorrectButton" name="incorrectButton">Dropped the ball!</button>
+    <button class="button text-center" id="nextButton" name="nextButton">Next!</button>
   </div>
 </div>
-<div class="row">
-  <div id="one" class="team column small-3">
-    1
+<div class="score-bar row">
+  <div class="current one team column small-3">
+    <h1 class="team-name">
+      <%= @team1.name %>
+    </h1>
+    <p class="score">
+      <%= @team1.score %>
+    </p>
   </div>
-  <div id="two" class="team column small-3">
-    2
+  <div class="team two column small-3">
+    <h1 class="team-name">
+      <%= @team2.name %>
+    </h1>
+    <p class="score">
+      <%= @team2.score %>
+    </p>
   </div>
-  <div id="three" class="team column small-3">
-    3
+  <div class="team three column small-3">
+    <h1 class="team-name">
+      <%= @team3.name %>
+    </h1>
+    <p class="score">
+      <%= @team3.score %>
+    </p>
   </div>
-  <div id="four" class="team column small-3">
-    4
+  <div class="team four column small-3">
+    <h1 class="team-name">
+      <%= @team4.name %>
+    </h1>
+    <p class="score">
+      <%= @team4.score %>
+    </p>
   </div>
 </div>

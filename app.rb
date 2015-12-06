@@ -40,6 +40,10 @@ get '/players.json' do
 end
 
 get '/play' do
+  @team1 = Team.find(1)
+  @team2 = Team.find(2)
+  @team3 = Team.find(3)
+  @team4 = Team.find(4)
   erb :play
 end
 
@@ -69,7 +73,25 @@ post "/update-players.json" do
     player.save
   end
   status 201
+end
 
+post "/reset-players" do
+  everyone = JSON.parse(params[:everyone])
+  everyone.each do |update|
+    player = Player.find_by(name: update["name"])
+    player.team_id = "0"
+    player.save
+  end
+  status 201
+end
+
+post "/update-team" do
+  if params[:name]
+    team = Team.find_by(name: params[:name])
+    team.score = params[:score]
+    team.save
+  end
+  status 200
 end
 
 get '/challenges' do
