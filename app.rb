@@ -25,11 +25,11 @@ get '/' do
 end
 
 get '/players' do
-  @players = Player.where(team: 0);
-  @team_1 = Player.where(team: 1);
-  @team_2 = Player.where(team: 2);
-  @team_3 = Player.where(team: 3);
-  @team_4 = Player.where(team: 4);
+  @players = Player.where(team_id: 0);
+  @team_1 = Player.where(team_id: 1);
+  @team_2 = Player.where(team_id: 2);
+  @team_3 = Player.where(team_id: 3);
+  @team_4 = Player.where(team_id: 4);
   erb :players
 end
 
@@ -59,6 +59,17 @@ post "/players.json" do
   else
     status 400
   end
+end
+
+post "/update-players.json" do
+  everyone = JSON.parse(params[:everyone])
+  everyone.each do |update|
+    player = Player.find_by(name: update["name"])
+    player.team_id = update["team_id"]
+    player.save
+  end
+  status 201
+
 end
 
 get '/challenges' do
