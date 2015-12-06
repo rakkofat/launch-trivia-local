@@ -44,6 +44,7 @@ get '/play' do
   @team2 = Team.find(2)
   @team3 = Team.find(3)
   @team4 = Team.find(4)
+  @current = Team.find_by(current: 'TRUE')
   erb :play
 end
 
@@ -86,10 +87,15 @@ post "/reset-players" do
 end
 
 post "/update-team" do
-  if params[:name]
-    team = Team.find_by(name: params[:name])
-    team.score = params[:score]
-    team.save
+  # if params[:name]
+  #   team = Team.find_by(name: params[:name])
+  #   team.score = params[:score]
+  #   team.save
+  # end
+  changes = JSON.parse(params[:changes])
+  changes.each do |update|
+    team = Team.find_by(name: update["name"])
+    team.update_attributes(update)
   end
   status 200
 end

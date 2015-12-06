@@ -1,4 +1,3 @@
-
 <div class="row">
   <div id="play-field" class="column">
     <h1 id="play-fieldText"></h1>
@@ -14,7 +13,7 @@
   </div>
 </div>
 <div class="score-bar row">
-  <div class="current one team column small-3">
+  <div class="one team column small-3">
     <h1 class="team-name">
       <%= @team1.name %>
     </h1>
@@ -46,4 +45,7 @@
       <%= @team4.score %>
     </p>
   </div>
+</div>
+<div class="on-deck hidden">
+  <p><%= @current.name %></p>
 </div>

@@ -7,6 +7,10 @@ body {
   min-height: 150px;
 }
 
+.hidden {
+  display: none;
+}
+
 .team {
   height: 250px;
 }

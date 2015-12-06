@@ -3,20 +3,44 @@ $(document).ready(function(){
   // I need to set current to whichever team has current = True
   // right now if I refresh the page, current is placed on first team
 
+  // UDPATE: posting to update team is currently broken
+
   var result;
 
   $("#showAnswerButton").hide();
   $("#correctButton").hide();
   $("#incorrectButton").hide();
   $("#nextButton").hide();
+  setCurrent();
+
+  function setCurrent () {
+    var onDeck = $.trim($(".on-deck").text());
+    $(".team:contains('" + onDeck + "')").addClass('current');
+  };
 
   var nextTeam = function() {
+    var currentTeam = $.trim($(".current .team-name").text());
     var $next = $('.current').removeClass('current').next('.team');
     if ($next.length) {
       $next.addClass('current');
     } else {
-    $(".team:first").addClass('current');
+      $next = $(".team:first").addClass('current');
     }
+
+    var nextTeamName = $.trim($(".current .team-name").text());
+
+    bulkData = JSON.stringify([{name: currentTeam, current: 'FALSE'}, {name: nextTeamName, current: 'TRUE'}]);
+    debugger
+
+    var request = $.ajax({
+      method: "POST",
+      data: {changes: bulkData},
+      url: "/update-team"
+    });
+
+    request.done(function(){
+      console.log('current team changed');
+    });
   };
 
   var addScore = function(n) {
@@ -25,9 +49,11 @@ $(document).ready(function(){
     var newScore = currentScore + n;
     $(".current .score").text(newScore);
 
+    data = JSON.stringify([{name: currentTeam, score: newScore}])
+
     var request = $.ajax({
       method: "POST",
-      data: {name: currentTeam, score: newScore},
+      data: {changes: data},
       url: "/update-team"
     });
   };
@@ -50,7 +76,6 @@ $(document).ready(function(){
       $("#playButton").hide();
       $("#nextButton").toggle();
       addScore(2);
-      nextTeam();
     } else {
       var response = $.ajax({
           method: "GET",
@@ -94,6 +119,7 @@ $(document).ready(function(){
     $("#play-fieldText").text("");
     $( "#nextButton").toggle();
     $("#playButton").toggle();
+    nextTeam();
   });
 
 });
