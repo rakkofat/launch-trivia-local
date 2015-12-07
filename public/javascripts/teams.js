@@ -64,8 +64,29 @@ $(document).ready(function(){
       url: "/reset-players"
     });
     return false;
+  });
 
+  $("#resetTeamScoresButton").click(function(event){
+    event.preventDefault();
 
+    var update = [];
+
+    $(".team-name-setup").each(function(index, value){
+      if ( index == 0 ) {
+        update.push({name: $(this).text(), score: '0', current: 'TRUE'});
+      } else {
+        update.push({name: $(this).text(), score: '0', current: 'FALSE'});
+      }
+    });
+
+    var bulkData = JSON.stringify(update);
+
+    var request = $.ajax({
+      method: "POST",
+      data: {changes: bulkData},
+      url: "/update-team"
+    });
+    return false;
   });
   //
   // var a = $.map( $('li'), function (element) { return _.trim($(element).text()) });

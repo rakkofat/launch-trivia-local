@@ -17,11 +17,12 @@
     </form>
     <button class="button text-center" id="sortButton" name="sortButton">Sort Teams!</button>
     <button class="button text-center" id="resetButton" name="resetButton">Reset Teams!</button>
+    <button class="button text-center" id="resetTeamScoresButton" name="resetTeamScoresButton">Reset Scores!</button>
   </div>
   <div id="teams-column" class="column small-6">
     <div class="row">
       <div class="column">
-        <h1>Team 1</h1>
+        <h1 class="team-name-setup">Team 1</h1>
         <ul id="1" class="droptrue">
           <% @team_1.each do |player| %>
           <li class="ui-state-default">
@@ -33,7 +34,7 @@
     </div>
     <div class="row">
       <div class="column">
-        <h1>Team 2</h1>
+        <h1 class="team-name-setup">Team 2</h1>
         <ul id="2" class="droptrue">
           <% @team_2.each do |player| %>
           <li class="ui-state-default">
@@ -45,7 +46,7 @@
     </div>
     <div class="row">
       <div class="column">
-        <h1>Team 3</h1>
+        <h1 class="team-name-setup">Team 3</h1>
         <ul id="3" class="droptrue">
           <% @team_3.each do |player| %>
           <li class="ui-state-default">
@@ -57,7 +58,7 @@
     </div>
     <div class="row">
       <div class="column">
-        <h1>Team 4</h1>
+        <h1 class="team-name-setup">Team 4</h1>
         <ul id="4" class="droptrue">
           <% @team_4.each do |player| %>
           <li class="ui-state-default">
