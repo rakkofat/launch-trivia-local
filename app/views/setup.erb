@@ -1,4 +1,24 @@
 <div class="row">
+  <div class="column">
+    <form action="/players" method="post" id="player-form">
+      <div class="row">
+        <div class="column medium-8">
+          <input id="player-name" name="name" type="text"></input>
+        </div>
+        <div class="column medium-4">
+          <button type="submit" class="button text-center">Add Player</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="column">
+    <button class="button text-center" id="sortButton" name="sortButton">Sort Teams!</button>
+    <button class="button text-center" id="resetButton" name="resetButton">Reset Teams!</button>
+    <button class="button text-center" id="resetTeamScoresButton" name="resetTeamScoresButton">Reset Scores!</button>
+  </div>
+</div>
+
+<div class="row">
   <div class="column small-6">
     <ul id="0" class="droptrue players">
       <% @players.each do |player| %>
@@ -7,17 +27,6 @@
       </li>
       <% end %>
     </ul>
-
-    <form action="/players" method="post" id="player-form">
-      <fieldset>
-        <legend>Add a Player</legend>
-        <input id="player-name" name="name" type="text"></input>
-        <input type="submit"></input>
-      </fieldset>
-    </form>
-    <button class="button text-center" id="sortButton" name="sortButton">Sort Teams!</button>
-    <button class="button text-center" id="resetButton" name="resetButton">Reset Teams!</button>
-    <button class="button text-center" id="resetTeamScoresButton" name="resetTeamScoresButton">Reset Scores!</button>
   </div>
   <div id="teams-column" class="column small-6">
     <div class="row">

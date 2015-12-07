@@ -32,13 +32,13 @@ get '/test' do
   erb :test
 end
 
-get '/players' do
+get '/setup' do
   @players = Player.where(team_id: 0);
   @team_1 = Player.where(team_id: 1);
   @team_2 = Player.where(team_id: 2);
   @team_3 = Player.where(team_id: 3);
   @team_4 = Player.where(team_id: 4);
-  erb :players
+  erb :setup
 end
 
 get '/players.json' do
