@@ -30,7 +30,6 @@ $(document).ready(function(){
     var nextTeamName = $.trim($(".current .team-name").text());
 
     bulkData = JSON.stringify([{name: currentTeam, current: 'FALSE'}, {name: nextTeamName, current: 'TRUE'}]);
-    debugger
 
     var request = $.ajax({
       method: "POST",

@@ -3,19 +3,47 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello World</title>
+    <title>Launch Trivia</title>
     <!-- <link rel="stylesheet" href="/stylesheets/jquery-ui.min.css"> -->
-    <link rel="stylesheet" href="/stylesheets/foundation.css" />
+    <link rel="stylesheet" href="/stylesheets/foundation.min.css" />
     <link rel="stylesheet" href="/stylesheets/app.css" />
   </head>
+  <!-- <body class="site"> -->
   <body>
+
+    <div class="fixed">
+      <nav class="top-bar">
+        <div class="top-bar-left clearfix">
+          <ul class="menu launch-logo">
+            <li><img src="/images/launch-logo.png"/></li>
+            <li><h1>Launch Trivia</h1></li>
+          </ul>
+        </div>
+        <div class="top-bar-right">
+          <ul class="menu">
+            <li><a href="/players">Setup</a></li>
+            <li><a href="/play">Play</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <!-- <div class="container site-content"> -->
     <div class="container">
-      <div class="row">
+      <div class="row align-middle">
         <div class="column">
           <%= yield %>
         </div>
       </div>
+      <div class="push"></div>
     </div>
+
+    <footer class="row">
+      <div class="columns">
+
+      </div>
+    </footer>
+
     <script src="/javascripts/lodash.min.js"></script>
     <script src="/javascripts/vendor/jquery.min.js"></script>
     <script src="/javascripts/vendor/what-input.min.js"></script>
@@ -23,5 +51,8 @@
     <script src="/javascripts/foundation.min.js"></script>
     <script src="/javascripts/play.js"></script>
     <script src="/javascripts/teams.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>

@@ -24,6 +24,14 @@ get '/' do
   erb :index
 end
 
+get '/test' do
+  @team1 = Team.find(1)
+  @team2 = Team.find(2)
+  @team3 = Team.find(3)
+  @team4 = Team.find(4)
+  erb :test
+end
+
 get '/players' do
   @players = Player.where(team_id: 0);
   @team_1 = Player.where(team_id: 1);

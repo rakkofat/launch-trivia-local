@@ -1,39 +1,113 @@
-body {
-  background: #eb227b;
+/*Using Ryan Fait HTML5 sticky footer
+Only problem is that you have to scroll
+to get to the footer.*/
+
+* {
+  margin: 0;
 }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #eeeeee;
+  /*display: flex;
+  min-height: 100vh;
+  height: 100%;
+  flex-direction: column;*/
+}
+
+.container {
+  min-height: 100%;
+  margin: 0 auto -3rem; /* the bottom margin is the negative value of the footer's height */
+}
+
+.push {
+  height: 3rem;
+}
+
+/**********     nav bar     ***********/
+
+.top-bar {
+  background: #34495e;
+  height: 4rem;
+  overflow: auto;
+}
+
+/*Why is this necessary?*/
+.top-bar ul {
+  background: #34495e;
+}
+
+.launch-logo img {
+  width: 3.4rem;
+  height: 3.1rem;
+}
+
+.launch-logo h1 {
+  color: #ffffff;
+  font-size: 1.7rem;
+  line-height: 2.8125rem;
+  margin: 0;
+}
+
+/**********     trivia field     ***********/
 
 #play-field {
   background: white;
   min-height: 150px;
 }
 
+/**********     team score bar     ***********/
+
+.team {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 10rem;
+  background: #34495e;
+  border: 0.2rem solid #eeeeee;
+  border-radius: 0.4rem;
+}
+
+.team h3 {
+  color: white;
+}
+
+.score-circle {
+  max-width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 0.2rem solid #ffffff;
+  border-radius: 3rem;
+  height: 6rem;
+  width: 6rem;
+}
+
+.score {
+  max-width: 50%;
+  font: 36px Arial, sans-serif;
+}
+
 .hidden {
   display: none;
 }
 
-.team {
-  height: 250px;
-}
-
-.one {
-  background: red;
-}
-
-.two {
-  background: orange;
-}
-
-.three {
-  background: yellow;
-}
-
-.four {
-  background: green;
-}
-
 .current {
-  background: purple;
+  background: #eb227b;
+  transform: scale(1.1);
 }
 
-/*#teamless, #team-1, #team-2, #team-3, #team-4 { list-style-type: none; margin: 0; float: left; margin-right: 10px; background: #eee; padding: 5px; width: 143px;}
-#teamless li, #team-1 li, #team-2 li, #team-3 li, #team-4 li { margin: 5px; padding: 5px; font-size: 1.2em; width: 120px; }*/
+/**********     footer     ***********/
+
+/*I dont really understand why this works. Why is it so hard to get a footer at the bottom?*/
+/*How can I have the footer be same width as main window?*/
+
+footer {
+  background: #eb227b;
+  height: 3rem;
+}
