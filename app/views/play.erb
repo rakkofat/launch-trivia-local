@@ -1,5 +1,5 @@
-<div class="row">
-  <div id="play-field" class="column">
+<div class="row top-viewport">
+  <div id="play-field" class="column callout">
     <h1 id="play-fieldText"></h1>
   </div>
 </div>
@@ -15,38 +15,58 @@
 
 <!-- Score Bar -->
 
-<div class="score-bar row medium-unstack align-middle align-spaced">
-  <div class="team column text-center">
+<div class="score-bar row medium-unstack align-middle align-spaced bottom-viewport">
+  <div id="team1" class="team column text-center">
     <h3 class="team-name">
       <%= @team1.name %>
     </h3>
-      <p class="score score-circle">
-        <%= @team1.score %>
-      </p>
+    <p class="score score-circle">
+      <%= @team1.score %>
+    </p>
+    <ul class="hidden">
+      <% @team1.players.each do |player| %>
+      <li><%= player.name %></li>
+      <% end %>
+    </ul>
   </div>
-  <div class="team column text-center">
+  <div id="team2" class="team column text-center">
     <h3 class="team-name">
       <%= @team2.name %>
     </h3>
-      <p class="score score-circle">
-        <%= @team2.score %>
-      </p>
+    <p class="score score-circle">
+      <%= @team2.score %>
+    </p>
+    <ul class="hidden">
+      <% @team2.players.each do |player| %>
+      <li><%= player.name %></li>
+      <% end %>
+    </ul>
   </div>
   <div class="team column text-center">
     <h3 class="team-name">
       <%= @team3.name %>
     </h3>
-      <p class="score score-circle">
-        <%= @team3.score %>
-      </p>
+    <p class="score score-circle">
+      <%= @team3.score %>
+    </p>
+    <ul class="hidden">
+      <% @team3.players.each do |player| %>
+      <li><%= player.name %></li>
+      <% end %>
+    </ul>
   </div>
   <div class="team column text-center">
     <h3 class="team-name">
       <%= @team4.name %>
     </h3>
-      <p class="score score-circle">
-        <%= @team4.score %>
-      </p>
+    <p class="score score-circle">
+      <%= @team4.score %>
+    </p>
+    <ul class="hidden">
+      <% @team4.players.each do |player| %>
+      <li><%= player.name %></li>
+      <% end %>
+    </ul>
   </div>
 </div>
 

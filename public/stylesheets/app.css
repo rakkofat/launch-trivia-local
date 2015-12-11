@@ -6,26 +6,24 @@ to get to the footer.*/
   margin: 0;
 }
 
-html, body {
-  height: 100%;
-}
-
 body {
+  min-height: 100vh;
   background: #eeeeee;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
   /*display: flex;
   min-height: 100vh;
   height: 100%;
   flex-direction: column;*/
 }
 
-.container {
+/*.container {
   min-height: 100%;
-  margin: 0 auto -3rem; /* the bottom margin is the negative value of the footer's height */
-}
+  margin: 0 auto -3rem;
+}*/
 
-.push {
+/*.push {
   height: 3rem;
-}
+}*/
 
 /**********     nav bar     ***********/
 
@@ -33,11 +31,16 @@ body {
   background: #34495e;
   height: 4rem;
   overflow: auto;
+  margin-bottom: 1rem;
 }
 
 /*Why is this necessary?*/
 .top-bar ul {
   background: #34495e;
+}
+
+.top-bar li:hover{
+  background: #eb227b;
 }
 
 .launch-logo img {
@@ -50,26 +53,55 @@ body {
   font-size: 1.7rem;
   line-height: 2.8125rem;
   margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-style: normal;
+  font-size: 1.7rem;
+  font-weight: 100;
+}
+
+
+/**********     trivia field     ***********/
+
+.viewport {
+  height: 100%;
+}
+
+.top-viewport {
+  height: 60%;
+}
+
+.bottom-viewport {
+  height: 40%;
+}
+
+.hidden = {
+  display: none;
 }
 
 /**********     trivia field     ***********/
 
 #play-field {
   background: white;
-  min-height: 150px;
+  height: 35vh;
+  overflow-y: auto;
 }
 
 /**********     team score bar     ***********/
+
+.score-bar {
+  /*height: 50vh;*/
+}
 
 .team {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 10rem;
+  min-height: 10rem;
   background: #34495e;
   border: 0.2rem solid #eeeeee;
   border-radius: 0.4rem;
+  /*overflow-y: auto;*/
 }
 
 .team h3 {
@@ -97,9 +129,17 @@ body {
   display: none;
 }
 
+.team ul li {
+  list-style-type: none;
+  color: white;
+}
+
 .current {
   background: #eb227b;
   transform: scale(1.1);
+  -webkit-box-shadow: 2px 2px 3px #666;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    2px 2px 3px #666;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         2px 2px 3px #666;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }
 
 /**********     footer     ***********/
@@ -110,10 +150,60 @@ body {
 footer {
   background: #eb227b;
   height: 3rem;
+  position: absolute;
+  bottom: 0;
+  width: 100%
 }
 
 /**********     Setup Page    ***********/
 
 #player-form {
 
+}
+
+/*.unsorted-players li, .sorted-players li {
+  color: white;
+  display: inline-block;
+  list-style-type: none;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  margin: 0.2rem;
+}*/
+
+
+
+.sorted-players li {
+  display: block;
+}
+
+.unsorted-players li {
+  display: inline-block;
+}
+
+.players li {
+  background: #eb227b;
+  color: white;
+  list-style-type: none;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  -webkit-box-shadow: 1px 1px 2px #666;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    1px 1px 2px #666;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         1px 1px 2px #666;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+li.selected {
+  background: #34495e;
+  color: white;
+  list-style-type: none;
+  border-radius: 0.2rem;
+  padding: 0.2rem;
+  margin: 0.2rem;
+  -moz-box-shadow:    inset 1px 1px 4px #000;
+  -webkit-box-shadow: inset 1px 1px 4px #000;
+  box-shadow:         inset 1px 1px 4px #000;
+}
+
+.unsorted-players-view {
+  min-height: 35vh;
 }

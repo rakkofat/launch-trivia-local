@@ -28,7 +28,7 @@ $(document).ready(function(){
 
     _.forEach(shuffled, function(player, index){
       var playerName = _.trim($(player).text());
-      var teamNum = _.min($("#teams-column ul"), function(team) { return $(team).children("li").length }).id
+      var teamNum = _.min($(".teams-column ul"), function(team) { return $(team).children("li").length }).id
       var placement = "#" + teamNum;
       update.push({name: playerName, team_id: teamNum});
       $(placement).append(player);
@@ -47,7 +47,7 @@ $(document).ready(function(){
   $("#resetButton").click(function(event){
     event.preventDefault();
 
-    var sortedPlayers = $("#teams-column li");
+    var sortedPlayers = $(".teams-column li");
     var update = [];
 
     _.forEach(sortedPlayers, function(player, index){
@@ -85,6 +85,34 @@ $(document).ready(function(){
       method: "POST",
       data: {changes: bulkData},
       url: "/update-team"
+    });
+    return false;
+  });
+
+  $( ".players" ).on( "click", "li", function( event ) {
+      event.preventDefault();
+      $( this ).toggleClass( "selected");
+  });
+
+  $("#destroySelected").click(function(event) {
+    event.preventDefault();
+
+    var toDestroy = $("#0 .selected");
+
+    var update = [];
+
+    _.forEach(toDestroy, function(player){
+      var playerName = _.trim($(player).text());
+      update.push({name: playerName, team_id: 0});
+      $('#0 li').filter(function() { return $.trim($.text([this])) === playerName; }).remove();
+    });
+
+    var bulkData = JSON.stringify(update);
+
+    var request = $.ajax({
+      method: "POST",
+      data: {everyone: bulkData},
+      url: "/delete-players"
     });
     return false;
   });

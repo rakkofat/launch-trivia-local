@@ -1,6 +1,6 @@
 <div class="row">
   <div class="column">
-    <form action="/players" method="post" id="player-form">
+    <form action="/setup" method="post" id="player-form">
       <div class="row">
         <div class="column medium-8">
           <input id="player-name" name="name" type="text"></input>
@@ -15,68 +15,63 @@
     <button class="button text-center" id="sortButton" name="sortButton">Sort Teams!</button>
     <button class="button text-center" id="resetButton" name="resetButton">Reset Teams!</button>
     <button class="button text-center" id="resetTeamScoresButton" name="resetTeamScoresButton">Reset Scores!</button>
+    <button class="button text-center" id="destroySelected" name="destroySelected">Whack Selected Players</button>
   </div>
 </div>
 
 <div class="row">
-  <div class="column small-6">
-    <ul id="0" class="droptrue players">
+  <div class="column unsorted-players-view">
+    <ul id="0" class="unsorted-players droptrue players">
       <% @players.each do |player| %>
-      <li class="ui-state-default">
+      <li class="unselected">
         <%= player.name %>
       </li>
       <% end %>
     </ul>
   </div>
-  <div id="teams-column" class="column small-6">
-    <div class="row">
-      <div class="column">
-        <h1 class="team-name-setup">Team 1</h1>
-        <ul id="1" class="droptrue">
-          <% @team_1.each do |player| %>
-          <li class="ui-state-default">
-            <%= player.name %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <h1 class="team-name-setup">Team 2</h1>
-        <ul id="2" class="droptrue">
-          <% @team_2.each do |player| %>
-          <li class="ui-state-default">
-            <%= player.name %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <h1 class="team-name-setup">Team 3</h1>
-        <ul id="3" class="droptrue">
-          <% @team_3.each do |player| %>
-          <li class="ui-state-default">
-            <%= player.name %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
-    <div class="row">
-      <div class="column">
-        <h1 class="team-name-setup">Team 4</h1>
-        <ul id="4" class="droptrue">
-          <% @team_4.each do |player| %>
-          <li class="ui-state-default">
-            <%= player.name %>
-          </li>
-          <% end %>
-        </ul>
-      </div>
-    </div>
+</div>
 
+<div class="row">
+  <div class="column teams-column">
+    <h1 class="team-name-setup">Team 1</h1>
+    <ul id="1" class="sorted-players players">
+      <% @team_1.each do |player| %>
+      <li class="unselected">
+        <%= player.name %>
+      </li>
+      <% end %>
+    </ul>
   </div>
+  <div class="column teams-column">
+    <h1 class="team-name-setup">Team 2</h1>
+    <ul id="2" class="sorted-players players">
+      <% @team_2.each do |player| %>
+      <li class="unselected">
+        <%= player.name %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="column teams-column">
+    <h1 class="team-name-setup">Team 3</h1>
+    <ul id="3" class="sorted-players players">
+      <% @team_3.each do |player| %>
+      <li class="unselected">
+        <%= player.name %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="column teams-column">
+    <h1 class="team-name-setup">Team 4</h1>
+    <ul id="4" class="sorted-players players">
+      <% @team_4.each do |player| %>
+      <li class="unselected">
+        <%= player.name %>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
 </div>

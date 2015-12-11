@@ -90,6 +90,17 @@ $(document).ready(function(){
     }
   });
 
+  function handler( event ) {
+  var target = $( event.target );
+  if ( target.is( ".team" ) ) {
+    target.children().last().toggleClass("hidden");
+  }
+}
+// $( ".team" ).click( handler );
+
+$( ".team" ).on('click', handler);
+
+
   $( "#showAnswerButton" ).click(function() {
     $("#play-fieldText").text(result.answer);
     $("#showAnswerButton").toggle();
@@ -106,13 +117,15 @@ $(document).ready(function(){
     nextTeam();
   });
 
-  $( "#incorrectButton" ).click(function() {
+  incorrectButtonHandler = function() {
     $("#play-fieldText").text("");
     $("#correctButton").toggle();
     $("#incorrectButton").toggle();
     $("#playButton").toggle();
     nextTeam();
-  });
+  };
+
+  $( "#incorrectButton" ).click(incorrectButtonHandler);
 
   $( "#nextButton" ).click(function() {
     $("#play-fieldText").text("");

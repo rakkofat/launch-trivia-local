@@ -56,11 +56,11 @@ get '/play' do
   erb :play
 end
 
-post "/players" do
+post "/setup" do
   unless (params[:name].nil? || params[:name].empty?)
     Player.create({name: params[:name], team_id: 0})
   end
-  redirect to("/players")
+  redirect to("/setup")
 end
 
 post "/players.json" do
@@ -108,25 +108,11 @@ post "/update-team" do
   status 200
 end
 
-get '/challenges' do
-  @challenges = Challenge.all
-  erb :challenges
-end
-
-post "/challenges" do
-  unless (params[:challenge].nil? || params[:challenge].empty?)
-    Challenge.create({challenge: params[:challenge]})
+post "/delete-players" do
+  changes = JSON.parse(params[:everyone])
+  changes.each do |deletion|
+    player = Player.find_by(name: deletion["name"])
+    player.destroy
   end
-  redirect to("/challenges")
-end
-
-post "/challenges/:challenge" do
-  if params[:challenge]
-    challenge = Challenge.create({challenge: params[:challenge]})
-    status 201
-    # headers "Location" => "/players/#{player.name}"
-    headers "Location" => "/challenges"
-  else
-    status 400
-  end
+  status 200
 end
