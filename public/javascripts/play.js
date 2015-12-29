@@ -1,10 +1,5 @@
 $(document).ready(function(){
 
-  // I need to set current to whichever team has current = True
-  // right now if I refresh the page, current is placed on first team
-
-  // UDPATE: posting to update team is currently broken
-
   var result;
 
   $("#showAnswerButton").hide();
@@ -100,22 +95,21 @@ $(document).ready(function(){
 
 $( ".team" ).on('click', handler);
 
-
-  $( "#showAnswerButton" ).click(function() {
+  showAnswerHandler = function() {
     $("#play-fieldText").text(result.answer);
     $("#showAnswerButton").toggle();
     $("#correctButton").toggle();
     $("#incorrectButton").toggle();
-  });
+  };
 
-  $( "#correctButton" ).click(function() {
+  correctButtonHandler = function() {
     $("#play-fieldText").text("");
     $("#correctButton").toggle();
     $("#incorrectButton").toggle();
     $("#playButton").toggle();
     addScore(1);
     nextTeam();
-  });
+  };
 
   incorrectButtonHandler = function() {
     $("#play-fieldText").text("");
@@ -125,13 +119,19 @@ $( ".team" ).on('click', handler);
     nextTeam();
   };
 
-  $( "#incorrectButton" ).click(incorrectButtonHandler);
-
-  $( "#nextButton" ).click(function() {
+  nextButtonHandler = function() {
     $("#play-fieldText").text("");
     $( "#nextButton").toggle();
     $("#playButton").toggle();
     nextTeam();
-  });
+  };
+
+  $( "#showAnswerButton" ).click(showAnswerHandler);
+
+  $( "#correctButton" ).click(correctButtonHandler);
+
+  $( "#incorrectButton" ).click(incorrectButtonHandler);
+
+  $( "#nextButton" ).click(nextButtonHandler);
 
 });
